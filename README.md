@@ -10,4 +10,5 @@ also Lctrl Lalt Lwin will suspend the script until release
 
 
 
-![2021_03_14~232642](https://user-images.githubusercontent.com/68251294/115974310-f8d13800-a55b-11eb-8a20-9a67c46850c4.png)
+![keyboard-layout](https://user-images.githubusercontent.com/68251294/115974922-9cbce280-a560-11eb-9927-d888f3d54306.png)
+
