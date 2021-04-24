@@ -16,14 +16,12 @@ Gui, +AlwaysOnTop +Owner
 Gui, Show, y0 x1720 NA
 
 
-~f23::
 ~Lwin::
 ~Lalt::
 ~Lctrl::
 Suspend, On
 Gui, Color, cA878DD
  return
-~f23 up::
 ~Lwin up::
 ~Lalt up::
 ~Lctrl up::
