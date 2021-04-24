@@ -11,7 +11,7 @@ Gui, -Caption
 Gui, Color, c202020
 Gui, +ToolWindow
 Gui, Font, cA878DD
-Gui, Add, text,, 💪
+Gui, Add, text,, L
 Gui, +AlwaysOnTop +Owner
 Gui, Show, y0 x1720 NA
 
