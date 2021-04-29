@@ -8,26 +8,29 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 Gui Destroy
 Gui, -Caption 
-Gui, Color, c202020
+Gui, Color, cA878DD
 Gui, +ToolWindow
 Gui, Font, cA878DD
-Gui, Add, text,, L
+Gui, Add, text,, K
 Gui, +AlwaysOnTop +Owner
-Gui, Show, y0 x1720 NA
+Gui, Show, y420 x-22 NA
 
-
+~f23::
 ~Lwin::
 ~Lalt::
 ~Lctrl::
 Suspend, On
-Gui, Color, cA878DD
+Gui, Color, c202020
  return
+~f23 up::
 ~Lwin up::
 ~Lalt up::
 ~Lctrl up::
 Suspend, Off
-Gui, Color, c202020
+Gui, Color, cA878DD
 return
+
+
 
 appskey::
 Suspend,Toggle
