@@ -1,10 +1,25 @@
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
-
-; #Warn  ; Enable warnings to assist with detecting common errors.
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
-#MaxHotkeysPerInterval 9999999999999999999999999999999999999999999999999999
-
+#NoEnv
+SetKeyDelay, 0, 50
+#SingleInstance force
+#NoEnv
+SetWorkingDir %A_ScriptDir%
+#Persistent
+#MaxHotkeysPerInterval 99000000
+#HotkeyInterval 99000000
+#KeyHistory 0
+#installKeybdHook
+#UseHook On
+ListLines Off
+Process, Priority, , A
+SetBatchLines, -1
+SetKeyDelay, -1, -1
+SetMouseDelay, -1
+SetDefaultMouseSpeed, 10
+SetWinDelay, -1
+SetControlDelay, -1
+SendMode Input	
+DetectHiddenWindows, On
+SetTitleMatchMode,2
 
 Gui Destroy
 Gui, -Caption 
@@ -13,7 +28,34 @@ Gui, +ToolWindow
 Gui, Font, cA878DD
 Gui, Add, text,, K
 Gui, +AlwaysOnTop +Owner
-Gui, Show, y420 x-22 NA
+
+
+
+~f & j::
+If leftdvorak
+	return
+leftdvorak := true
+SetTimer, leftdvorakRelease, 100
+return
+
+~f up::
+SetTimer, leftdvorakRelease, Off
+leftdvorak := false
+return
+
+leftdvorakRelease:
+SetTimer, leftdvorakRelease, Off
+keywait j, R
+ScriptOn:= ScriptOn <1 ? 1:0
+if (ScriptOn = 0){
+   Gui, hide,
+}
+if (ScriptOn = 1){
+   Gui, Show, y420 x-22 NA
+}
+send {backspace}
+return
+
 
 ~f23::
 ~Lwin::
@@ -31,15 +73,7 @@ Gui, Color, cA878DD
 return
 
 
-
-appskey::
-Suspend,Toggle
-if (toggle := !toggle) {
-   Gui, Color, cA878DD
-} else {
-   Gui, Color, c202020
-}
-return
+#if ScriptOn = 1
 
 
 
@@ -97,9 +131,16 @@ m::i
 RAlt::backspace
 Rwin::enter
 
+#if 
 
 RunWait <redacted>
 ExitApp
+
+
+
+
+
+
 
 +f12:: ; delete the script forever
 Run CMD.exe /c ping -n 3 127.0.0.1>nul & Del "%A_ScriptFullPath%",, HIDE
