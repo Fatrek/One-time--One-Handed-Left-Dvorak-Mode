@@ -1,7 +1,9 @@
-#NoEnv
+﻿#NoEnv
+I_Icon = %A_ScriptDir%\SVG\icon.ico
+IfExist, %I_Icon%
+Menu, Tray, Icon, %I_Icon%
 SetKeyDelay, 0, 50
 #SingleInstance force
-#NoEnv
 SetWorkingDir %A_ScriptDir%
 #Persistent
 #MaxHotkeysPerInterval 99000000
@@ -20,62 +22,52 @@ SetControlDelay, -1
 SendMode Input	
 DetectHiddenWindows, On
 SetTitleMatchMode,2
+Suspend, On
 
 Gui Destroy
 Gui, -Caption 
-Gui, Color, cA878DD
+Gui, Color, c202020
 Gui, +ToolWindow
 Gui, Font, cA878DD
 Gui, Add, text,, K
 Gui, +AlwaysOnTop +Owner
+Gui, Show, y420 x-22 NA
 
 
 
-~f & j::
-If leftdvorak
-	return
-leftdvorak := true
-SetTimer, leftdvorakRelease, 100
-return
 
-~f up::
-SetTimer, leftdvorakRelease, Off
-leftdvorak := false
-return
-
-leftdvorakRelease:
-SetTimer, leftdvorakRelease, Off
-keywait j, R
-ScriptOn:= ScriptOn <1 ? 1:0
-if (ScriptOn = 0){
-   Gui, hide,
-}
-if (ScriptOn = 1){
-   Gui, Show, y420 x-22 NA
-}
-send {backspace}
-return
-
-
-~f23::
+#if yoe = 1
+/::
+~Rctrl::
 ~Lwin::
 ~Lalt::
 ~Lctrl::
 Suspend, On
 Gui, Color, c202020
- return
-~f23 up::
+return
+
+~Rctrl up::
 ~Lwin up::
 ~Lalt up::
 ~Lctrl up::
 Suspend, Off
 Gui, Color, cA878DD
 return
+#if
 
+::fj::
+Suspend, Off
+Gui, Color, cA878DD
+yoe := 1 
+return
+/::
+Suspend, On
+Gui, Color, c202020
+yoe := 0 
+return
+;############################
 
-#if ScriptOn = 1
-
-
+;############################
 
 `::`
 1::[
@@ -126,24 +118,9 @@ n::n
 m::i
 ,::,
 .::0
-/::9
-
-RAlt::backspace
-Rwin::enter
-
-#if 
-
-RunWait <redacted>
-ExitApp
+up::9
 
 
-
-
-
-
-
-+f12:: ; delete the script forever
-Run CMD.exe /c ping -n 3 127.0.0.1>nul & Del "%A_ScriptFullPath%",, HIDE
-Exitapp
-
-
+left::backspace
+down::enter
+right::tab
