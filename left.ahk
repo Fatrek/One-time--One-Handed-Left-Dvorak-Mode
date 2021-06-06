@@ -31,7 +31,7 @@ Gui, +ToolWindow
 Gui, Font, cA878DD
 Gui, Add, text,, K
 Gui, +AlwaysOnTop +Owner
-Gui, Show, y420 x-22 NA
+Gui, Show, NoActivate y-22 x920 NA
 
 
 
