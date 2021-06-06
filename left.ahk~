@@ -65,7 +65,7 @@ Gui, Color, c202020
 yoe := 0 
 return
 ;############################
-::fjfj::
+::fe::
 suspend, off
 reload
 return
