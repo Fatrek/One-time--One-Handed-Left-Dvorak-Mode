@@ -28,7 +28,7 @@ Gui Destroy
 Gui, -Caption 
 Gui, Color, c202020
 Gui, +ToolWindow
-Gui, Font, cA878DD
+Gui, Font, c202020
 Gui, Add, text,, K
 Gui, +AlwaysOnTop +Owner
 Gui, Show, NoActivate y-22 x920 NA
@@ -50,13 +50,13 @@ return
 ~Lalt up::
 ~Lctrl up::
 Suspend, Off
-Gui, Color, cA878DD
+Gui, Color, c8093F1
 return
 #if
 
 ::fj::
 Suspend, Off
-Gui, Color, cA878DD
+Gui, Color, c8093F1
 yoe := 1 
 return
 /::
