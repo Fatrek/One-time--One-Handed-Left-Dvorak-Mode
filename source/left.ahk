@@ -59,7 +59,7 @@ Suspend, Off
 Gui, Color, c8093F1
 yoe := 1 
 return
-/::
+Rshift::
 Suspend, On
 Gui, Color, c202020
 yoe := 0 
@@ -123,6 +123,6 @@ m::i
 up::9
 
 
-left::backspace
-down::enter
-right::tab
+Ralt::backspace
+appskey::enter
+RCtrl::tab
