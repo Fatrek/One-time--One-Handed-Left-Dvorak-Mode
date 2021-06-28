@@ -11,6 +11,7 @@ SetWorkingDir %A_ScriptDir%
 #KeyHistory 0
 #installKeybdHook
 #UseHook On
+#inputlevel 0
 ListLines Off
 Process, Priority, , A
 SetBatchLines, -1
@@ -34,21 +35,37 @@ Gui, +AlwaysOnTop +Owner
 Gui, Show, NoActivate y-22 x920 NA
 
 
-
+if FileExist("keys.data"){
+Filereadline, line1, keys.data, 1
+Filereadline, line2, keys.data, 2
+Filereadline, line3, keys.data, 3
+Filereadline, line4, keys.data, 4
+Hotkey, %line1%  , key1 
+Hotkey, %line2%  , key2 
+Hotkey, %line3%  , key3
+Hotkey, %line4%  , key4
+}else {
+FileAppend, RAlt`n, keys.data 
+FileAppend, AppsKey`n, keys.data 
+FileAppend, RCtrl`n, keys.data 
+FileAppend, RShift`n, keys.data 
+reload
+return
+}
 
 #if yoe = 1
-~Rctrl::
 ~Lwin::
 ~Lalt::
 ~Lctrl::
+~f23::
 Suspend, On
 Gui, Color, c202020
 return
 
-~Rctrl up::
 ~Lwin up::
 ~Lalt up::
 ~Lctrl up::
+~f23 up::
 Suspend, Off
 Gui, Color, c8093F1
 return
@@ -59,17 +76,29 @@ Suspend, Off
 Gui, Color, c8093F1
 yoe := 1 
 return
-Rshift::
+
+key4:
 Suspend, On
 Gui, Color, c202020
 yoe := 0 
 return
+
+
+
+
+
+
+
 ;############################
 ::fjfj::
 suspend, off
 reload
 return
 ;############################
+#if yoe = 1
+
+
+
 
 `::`
 1::[
@@ -122,7 +151,12 @@ m::i
 .::0
 up::9
 
-
-Ralt::backspace
-appskey::enter
-RCtrl::tab
+key1:
+send, {backspace}
+return
+key2:
+send, {enter}
+return
+key3:
+send, {tab}
+return
