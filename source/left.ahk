@@ -27,12 +27,11 @@ Suspend, On
 
 Gui Destroy
 Gui, -Caption 
-Gui, Color, c202020
+Gui, Color, c8093F1
 Gui, +ToolWindow
-Gui, Font, c202020
+Gui, Font, c8093F1
 Gui, Add, text,, K
 Gui, +AlwaysOnTop +Owner
-Gui, Show, NoActivate y-22 x920 NA
 
 
 
@@ -82,14 +81,14 @@ return
 
 ::fj::
 Suspend, Off
-Gui, Color, c8093F1
+Gui, Show, NoActivate y-22 x920 NA
 y = 1
 yoe := 1 
 return
 
 key4:
 Suspend, On
-Gui, Color, c202020
+Gui, hide 
 y = 1
 yoe := 0 
 return
